@@ -32,11 +32,10 @@ var skyColor = new BasicCard(
 inquire.prompt([{
         name: 'firstPresident',
         message: firstPresident.front,
-        type: 'list',
-        choices: ['Abraham Lincoln', 'George Washington', 'Thomas Jefferson']
+        type: 'input',
     }])
     .then(function (results) {
-        if (results.firstPresident === 'George Washington') {
+        if (results.input === 'George Washington') {
             console.log('\n\rQ: ' + firstPresident.front + '\n\rA: ' + firstPresident.back + '\n\rYou answered: ' + results.firstPresident + '. You got it right!\n\r')
         } else {
             console.log('\n\rQ: ' + firstPresident.front + '\n\rA: ' + firstPresident.back + '\n\rYou answered: ' + results.firstPresident + '. You got it wrong! Boo hoo.\n\r')
@@ -45,11 +44,10 @@ inquire.prompt([{
         inquire.prompt([{
                 name: 'catDog',
                 message: catDog.front,
-                type: 'list',
-                choices: ['Cats', 'Dogs']
+                type: 'input'
             }])
             .then(function (results) {
-                if (results.catDog === 'Cats') {
+                if (results.input === 'Cats') {
                     console.log('\n\rQ: ' + catDog.front + '\n\rA: ' + catDog.back + '\n\rYou answered: ' + results.catDog + '. You got it right!\n\r')
                 } else {
                     console.log('\n\rQ: ' + catDog.front + '\n\rA: ' + catDog.back + '\n\rYou answered: ' + results.catDog + '. You got it wrong..Cats is obviously the correct answer.\n\r');
@@ -57,8 +55,7 @@ inquire.prompt([{
                 inquire.prompt([{
                         name: 'skyColor',
                         message: skyColor.front,
-                        type: 'list',
-                        choices: ['Green', 'White', 'Blue', 'Black']
+                        type: 'input'                    
                     }])
                     .then(function (results) {
                         if (results.skyColor === 'Blue') {
