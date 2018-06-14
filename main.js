@@ -52,34 +52,34 @@ var basic10 = card(
 
 
 var cloze1 = cloze(
-    'George Washington was the first president of the United States.', 'George Washington'
+    'The word PEZ comes from the German word peppermint.', 'peppermint'
 );
 var cloze2 = cloze(
-    'Cats are better than dogs', 'Cats'
+    'Ravens in captivity can learn to talk better than parrots.', 'parrots'
 );
 var cloze3 = cloze(
-    'The sky is blue', 'blue'
+    'According to a 2015 study, sarcasm can promote creative thinking', 'sarcasm'
 );
 var cloze4 = cloze(
-    'Abraham is the biblical figure and founder of Judaism.', 'Abraham'
+    'J.K. Rowling invented Quidditch in a pub.', 'Quidditch'
 );
 var cloze5 = cloze(
-    'In the professional audio industry, AES refers to Audio Engineering Society.', 'Audio Engineering Society'
+    'Before it was rebranded as a kids toy, Play-Doh was initially sold as a wallaper cleaner.', 'Play-Doh'
 );
 var cloze6 = cloze(
-    'The Yankee Stadium\'s nickname is The House That Ruth Built.', 'The House That Ruth Built'
+    'The average cumulus cloud weighs roughly 1.1 million pounds.', 'cumulus'
 );
 var cloze7 = cloze(
-    'In New York City, Fifth avenue divides the east side from the west side.', 'Fifth'
+    'The Hass avocado was patended in 1935 by Rudolph Hass, a mailman from California', '1935'
 );
 var cloze8 = cloze(
-    'The iPhone debuted on the market in 2007.', '2007'
+    'The heads on Easter Island have bodies', 'bodies'
 );
 var cloze9 = cloze(
-    'The abbreviation SUV stands for Sport Utility Vehicle?', 'Sport Utility Vehicle'
+    'The New York Public Library initially refused to stock Goodnight Moon.', 'Goodnight Moon'
 );
 var cloze10 = cloze(
-    'There are 9 candles on a menorah. (enter a numerical value)', '9'
+    'Bacon was used to make explosives during World War II', 'explosives'
 );
 // console.log(clozeArray);
 
