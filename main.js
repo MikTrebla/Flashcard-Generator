@@ -169,6 +169,8 @@ function shuffleArray(mixedArray) {
     }
     return mixedArray;
 };
+basicArray = shuffleArray(basicArray);
+clozeArray = shuffleArray(clozeArray);
 mixedArray = shuffleArray(mixedArray);
 // console.log(mixedArray[0]);
 
