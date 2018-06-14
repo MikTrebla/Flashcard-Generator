@@ -82,6 +82,7 @@ var cloze10 = cloze(
     'There are 9 candles on a menorah. (enter a numerical value)', '9'
 );
 // console.log(clozeArray);
+
 var i = 0;
 
 function basicFunction() {
@@ -124,7 +125,7 @@ function clozeFunction() {
         inquire.prompt([{
                 name: 'flashcard',
                 message: clozeArray[i].partial,
-                input: 'type'
+                type: 'input'
             }])
             .then(function (results) {
                 if (results.flashcard.toLowerCase() === clozeArray[i].cloze.toLowerCase()) {
@@ -153,12 +154,81 @@ function clozeFunction() {
     };
 };
 
+var mixedArray = basicArray.concat(clozeArray)
+
+function shuffleArray(mixedArray) {
+    var currentIndex = mixedArray.length,
+        temporaryValue, randomIndex;
+    while (0 !== currentIndex) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+
+        temporaryValue = mixedArray[currentIndex];
+        mixedArray[currentIndex] = mixedArray[randomIndex];
+        mixedArray[randomIndex] = temporaryValue;
+    }
+    return mixedArray;
+};
+mixedArray = shuffleArray(mixedArray);
+// console.log(mixedArray[0]);
+
+function bothCards() {
+    if (i < mixedArray.length && Object.keys(mixedArray[i]).length <= 2) {
+        inquire.prompt([{
+                name: 'basic',
+                message: mixedArray[i].front,
+                type: 'input'
+            }])
+            .then(function (results) {
+                if (results.basic.toLowerCase() === mixedArray[i].back.toLowerCase()) {
+                    console.log('You got it right!')
+                    i++;
+                } else {
+                    console.log('Fail...');
+                    console.log('Correct answer was : ' + mixedArray[i].back)
+                    i++;
+                }
+                bothCards();
+            })
+    } else if (i < mixedArray.length && Object.keys(mixedArray[i]).length > 2) {
+        inquire.prompt([{
+            name : 'cloze',
+            message : mixedArray[i].partial,
+            type : 'input'
+        }])
+        .then(function(results) {
+            if (results.cloze.toLowerCase() === mixedArray[i].cloze.toLowerCase()) {
+                console.log('You got it right!')
+                i++;
+            } else {
+                console.log('Fail...');
+                console.log('Correct answer was : ' + mixedArray[i].cloze)
+                i++;
+            }
+            bothCards();
+        })
+    } else if (i >= mixedArray.length) {
+        inquire.prompt([{
+            name: 'replay',
+            message: 'Would you like to review again?',
+            type: 'confirm'
+        }]).then(function (confirm) {
+            if (confirm.replay) {
+                i = 0;
+                basicOrCloze();
+            } else if (!confirm.replay) {
+                console.log('Okay. Bye.')
+            };
+        });
+    }
+}
+
 function basicOrCloze() {
     inquire.prompt([{
             type: 'list',
             name: 'choice',
             message: 'Would you like to view basic flashcards or cloze cards or both?',
-            choices: ['Basic', 'Cloze']
+            choices: ['Basic', 'Cloze', 'Both']
         }])
         .then(function (results) {
             console.log(results.choice);
@@ -168,8 +238,9 @@ function basicOrCloze() {
             } else if (results.choice === 'Cloze') {
                 //start Cloze game
                 clozeFunction();
-            };
+            } else if (results.choice === 'Both') {
+                bothCards();
+            }
         })
 };
-
 basicOrCloze();
