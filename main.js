@@ -224,7 +224,9 @@ function bothCards() {
         });
     }
 }
-`${basicArray}'hi'`
+
+
+
 function basicOrCloze() {
     inquire.prompt([{
             type: 'list',
