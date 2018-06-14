@@ -156,18 +156,18 @@ function clozeFunction() {
 
 var mixedArray = basicArray.concat(clozeArray)
 
-function shuffleArray(mixedArray) {
-    var currentIndex = mixedArray.length,
+function shuffleArray(array) {
+    var currentIndex = array.length,
         temporaryValue, randomIndex;
     while (0 !== currentIndex) {
         randomIndex = Math.floor(Math.random() * currentIndex);
         currentIndex -= 1;
 
-        temporaryValue = mixedArray[currentIndex];
-        mixedArray[currentIndex] = mixedArray[randomIndex];
-        mixedArray[randomIndex] = temporaryValue;
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
     }
-    return mixedArray;
+    return array;
 };
 basicArray = shuffleArray(basicArray);
 clozeArray = shuffleArray(clozeArray);
@@ -224,7 +224,7 @@ function bothCards() {
         });
     }
 }
-
+`${basicArray}'hi'`
 function basicOrCloze() {
     inquire.prompt([{
             type: 'list',
